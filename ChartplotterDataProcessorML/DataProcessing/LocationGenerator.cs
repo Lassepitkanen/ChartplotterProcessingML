@@ -60,22 +60,22 @@ namespace ChartplotterDataProcessorML.DataProcessing
         private void GenerateLocations()
         {
             CreatedPoints = new List<Data>();
-            var found = new bool[8];
+            var notFound = new bool[8];
             foreach (var row in Context.Rows.Where(x => x.WaterDepth >= _dataProcessingParams.DepthFilterLow))
             {
                 if (!NoMissingLocationsNearCache.Contains(row))
                 {
-                    found[0] = LookForMissingLocation(row, LngStep);
-                    found[1] = LookForMissingLocation(row, -LngStep);
-                    found[2] = LookForMissingLocation(row, 0, LatStep);
-                    found[3] = LookForMissingLocation(row, 0, -LatStep);
+                    notFound[0] = LookForMissingLocation(row, LngStep);
+                    notFound[1] = LookForMissingLocation(row, -LngStep);
+                    notFound[2] = LookForMissingLocation(row, 0, LatStep);
+                    notFound[3] = LookForMissingLocation(row, 0, -LatStep);
 
-                    found[4] = LookForMissingLocation(row, LngStep, LatStep);
-                    found[5] = LookForMissingLocation(row, -LngStep, -LatStep);
-                    found[6] = LookForMissingLocation(row, -LngStep, LatStep);
-                    found[7] = LookForMissingLocation(row, LngStep, -LatStep);
+                    notFound[4] = LookForMissingLocation(row, LngStep, LatStep);
+                    notFound[5] = LookForMissingLocation(row, -LngStep, -LatStep);
+                    notFound[6] = LookForMissingLocation(row, -LngStep, LatStep);
+                    notFound[7] = LookForMissingLocation(row, LngStep, -LatStep);
 
-                    if (found.All(x => x == true))
+                    if (notFound.All(x => x == true))
                     {
                         NoMissingLocationsNearCache.Add(row);
                     }
