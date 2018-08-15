@@ -90,9 +90,9 @@ namespace ChartplotterDataProcessorML.DataProcessing
                 !CreatedPoints.Any(x => x.GpsLng == row.GpsLng + lngStep && x.GpsLat == row.GpsLat + latStep))
             {
                 CreateNewLocation(row, lngStep, latStep);
-                return true;
+                return false;
             }
-            return false;
+            return true;
         }
 
         private void CreateNewLocation(Data row, decimal lngStep, decimal latStep)
