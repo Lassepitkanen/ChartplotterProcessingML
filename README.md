@@ -1,11 +1,4 @@
 # ChartPlotterDataProcessorML
-> Data Processing for Chartplotter project.
->__________________________________________
-> To get a better understanding check 
-> [ChartPlotterLogger](https://github.com/Lassepitkanen/ChartplotterLogger)
-> and
-> [ChartPlotterMap](https://github.com/Lassepitkanen/ChartplotterMap)
-___________________________________________
 ![](image.png)
 ## Running Data Processing 
 
